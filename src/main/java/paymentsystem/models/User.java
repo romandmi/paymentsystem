@@ -22,7 +22,7 @@ public class User {
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean isAdmin;
 
-    @OneToOne(mappedBy = "users")
+    @OneToOne(mappedBy = "user")
     private Clients client;
 
     public Long getId() {

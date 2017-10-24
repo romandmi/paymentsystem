@@ -23,10 +23,9 @@ public class Clients {
 
     @OneToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn (name = "user_id")
-
     private User user;
 
-    @OneToMany (mappedBy = "clients",cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+    @OneToMany (mappedBy = "client",cascade = CascadeType.ALL, fetch = FetchType.EAGER )
     private Set<Card> cards;
 
     public Long getId() {
