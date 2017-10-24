@@ -25,7 +25,6 @@ public class User {
     @OneToOne(mappedBy = "users")
     private Clients client;
 
-
     public Long getId() {
         return id;
     }
