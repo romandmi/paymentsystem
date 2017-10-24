@@ -22,6 +22,8 @@ public class User {
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean isAdmin;
 
+    @OneToOne(mappedBy = "users")
+    private Clients client;
 
 
     public Long getId() {
@@ -54,5 +56,9 @@ public class User {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    public Clients getClient() {
+        return client;
     }
 }

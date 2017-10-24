@@ -2,9 +2,10 @@ package paymentsystem.models;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "client")
+@Table(name = "clients")
 public class Clients {
 
     @Id
@@ -20,6 +21,35 @@ public class Clients {
     @Column(length = 30)
     private String surname;
 
+    @OneToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn (name = "user_id")
 
+    private User user;
 
+    @OneToMany (mappedBy = "clients",cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+    private Set<Card> cards;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Set<Card> getCards() {
+        return cards;
+    }
 }

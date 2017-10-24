@@ -20,6 +20,9 @@ public class BankAccount {
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean isBlocked;
 
+    @OneToOne(mappedBy = "bank_account", fetch = FetchType.EAGER)
+    private Card card;
+
     public Long getId() {
         return id;
     }
@@ -42,5 +45,9 @@ public class BankAccount {
 
     public void setBlocked(boolean blocked) {
         isBlocked = blocked;
+    }
+
+    public Card getCard() {
+        return card;
     }
 }

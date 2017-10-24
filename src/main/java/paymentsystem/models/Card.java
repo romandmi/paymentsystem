@@ -13,12 +13,27 @@ public class Card {
     @Column
     private int number;
 
-    @Column
-    private int accountid;
+    @OneToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn (name = "account_id")
+    private BankAccount bankAccount;
 
-    @Column
-    private int clientId;
+    @ManyToOne (fetch = FetchType.EAGER)
+    @JoinColumn (name = "client_id")
+    private Clients client;
 
+    public Long getId() {
+        return id;
+    }
 
+    public int getNumber() {
+        return number;
+    }
 
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
+
+    public Clients getClient() {
+        return client;
+    }
 }
