@@ -10,8 +10,8 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private int number;
+    @Column (length = 16)
+    private String cardNumber;
 
     @OneToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn (name = "account_id")
@@ -25,8 +25,8 @@ public class Card {
         return id;
     }
 
-    public int getNumber() {
-        return number;
+    public String getNumber() {
+        return cardNumber;
     }
 
     public BankAccount getBankAccount() {
